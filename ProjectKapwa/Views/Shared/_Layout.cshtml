@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="~/Content/materialize/css/materialize.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    @*TOPNAV*@
+    <div class="navbar-fixed">
+        <nav class="navbar-fixed col s12 m12 l12 z-depth-3 blue darken-4">
+            <a id="menu-mobile" href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">PROJECT-X-FORM</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="waves-effect"><a href="#"><i class="material-icons right">settings</i>Settings</a></li>
+                    <li class="waves-effect"><a href="#"><i class="material-icons right">power_settings_new</i>Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    @*SIDENAV-MOBILE*@
+    <ul id="slide-out" class="side-nav grey col s12 m4 l2">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="images/office.jpg" />
+                </div>
+                <a href="#!user"><img class="circle" src="images/yuna.jpg" /></a>
+                <a href="#!name"><span class="white-text name">JF Bergado</span></a>
+                <a href="#!email"><span class="white-text email">jf.bergado@xceler8inc.com</span></a>
+            </div>
+        </li>
+        @*<li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+            <li><a href="#!">Second Link</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>*@
+    </ul>
+
+    <main>
+        <div id="row" class="row">
+            <div id="sidnavrow" class="col s12 m4 l2 l2 grey side-nav fixed">
+                @*SIDENAV*@
+                <ul id="sidenavfix">
+                    <li>
+                        <div class="user-view">
+                            <div class="background">
+                                <img src="images/office.jpg" />
+                            </div>
+                            <a href="#!user"><img class="circle" src="images/yuna.jpg" /></a>
+                            <a href="#!name"><span class="white-text name">JF Bergado</span></a>
+                            <a href="#!email"><span class="white-text email">jf.bergado@xceler8inc.com</span></a>
+                        </div>
+                    </li>
+                    @*<li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+                        <li><a href="#!">Second Link</a></li>
+                        <li><div class="divider"></div></li>
+                        <li><a class="subheader">Subheader</a></li>
+                        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>*@
+                </ul>
+            </div>
+
+            <div class="col s12 m12 l10 l10 offset-l2">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/materialize/materialize.min.js"></script>
+    <script src="~/Scripts/materializecssInit.js"></script>
+</body>
+</html>

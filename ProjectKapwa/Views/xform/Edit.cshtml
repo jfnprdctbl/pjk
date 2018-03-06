@@ -1,0 +1,70 @@
+﻿@model ProjectKapwa.Models.xforms
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    <div class="row">
+        <div class="input-field col s6">
+            @Html.EditorFor(model => model.FullName.FirstName)
+            @Html.LabelFor(model => model.FullName.FirstName)
+            @Html.ValidationMessageFor(model => model.FullName.FirstName, "", new { @class = "validate" })
+        </div>
+        <div class="input-field col s6">
+            @Html.EditorFor(model => model.FullName.LastName)
+            @Html.LabelFor(model => model.FullName.LastName)
+            @Html.ValidationMessageFor(model => model.FullName.LastName, "", new { @class = "validate" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s6">
+            @Html.EditorFor(model => model.Partition)
+            @Html.LabelFor(model => model.Partition)
+            @Html.ValidationMessageFor(model => model.Partition, "", new { @class = "validate" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field col s6">
+            @Html.EditorFor(model => model.Description)
+            @Html.LabelFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "validate" })
+        </div>
+        <div class="input-field col s3">
+        </div>
+        <div class="input-field col s3">
+            <p>
+                <input name="Completed" id="Completed" checked="@Model.Completed" type="checkbox" value="true">
+                @Html.LabelFor(m => m.Completed)
+                @Html.ValidationMessageFor(model => model.Completed, "", new { @class = "checkbox" })
+            </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,151 @@
+﻿@model ProjectKapwa.Models.WorkAcceptance
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="container form-horizontal">
+            <h2>Work Acceptance</h2>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="input-field col s12">
+                @Html.EditorFor(model => model.partition)
+                @Html.LabelFor(model => model.partition, "Partition/Category")
+                @Html.ValidationMessageFor(model => model.partition, "", new { @class = "validate" })
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.Formdata.date)
+                    @Html.LabelFor(model => model.Formdata.date, "Date")
+                    @Html.ValidationMessageFor(model => model.Formdata.date, "", new { @class = "validate" })
+                </div>
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.Formdata.WorkOrderNo)
+                    @Html.LabelFor(model => model.Formdata.WorkOrderNo, "Work Order No.")
+                    @Html.ValidationMessageFor(model => model.Formdata.WorkOrderNo, "", new { @class = "validate" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.Formdata.name)
+                    @Html.LabelFor(model => model.Formdata.name, "Name")
+                    @Html.ValidationMessageFor(model => model.Formdata.name, "", new { @class = "validate" })
+                </div>
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.Formdata.Client.name)
+                    @Html.LabelFor(model => model.Formdata.Client.name, "Client Name")
+                    @Html.ValidationMessageFor(model => model.Formdata.Client.name, "", new { @class = "validate" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.Formdata.position)
+                    @Html.LabelFor(model => model.Formdata.position, "Position")
+                    @Html.ValidationMessageFor(model => model.Formdata.position, "", new { @class = "validate" })
+                </div>
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.Formdata.Client.address)
+                    @Html.LabelFor(model => model.Formdata.Client.address, "Client Address")
+                    @Html.ValidationMessageFor(model => model.Formdata.Client.address, "", new { @class = "validate" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.Formdata.TimeLog.TimeIn)
+                    @Html.LabelFor(model => model.Formdata.TimeLog.TimeIn, "Time IN")
+                    @Html.ValidationMessageFor(model => model.Formdata.TimeLog.TimeIn, "", new { @class = "validate" })
+                </div>
+                <div class="input-field col s6">
+                    @Html.EditorFor(model => model.Formdata.TimeLog.TimeOut)
+                    @Html.LabelFor(model => model.Formdata.TimeLog.TimeOut, "Time OUT")
+                    @Html.ValidationMessageFor(model => model.Formdata.TimeLog.TimeOut, "", new { @class = "validate" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s6">
+                    <p>
+                        <input name="Formdata.Billable" id="Formdata_Billable" type="checkbox" value="true">
+                        @Html.LabelFor(m => m.Formdata.Billable)
+                        @Html.ValidationMessageFor(model => model.Formdata.Billable, "", new { @class = "checkbox" })
+                    </p>
+                </div>
+                <div class="input-field col s6">
+                    <p>
+                        <input name="Formdata.OriginalScope" id="Formdata_OriginalScope" type="checkbox" value="true">
+                        @Html.LabelFor(m => m.Formdata.OriginalScope)
+                        @Html.ValidationMessageFor(model => model.Formdata.OriginalScope, "", new { @class = "checkbox" })
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.TextAreaFor(m => m.Formdata.detailsOfActivity, new { @class = "materialize-textarea" })
+                            @Html.LabelFor(m => m.Formdata.detailsOfActivity, "Details of Activity")
+                            @Html.ValidationMessageFor(model => model.Formdata.detailsOfActivity, "", new { @class = "validate" })
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            @Html.EditorFor(model => model.Formdata.clientRemarks)
+                            @Html.LabelFor(model => model.Formdata.clientRemarks, "Client Remarks")
+                            @Html.ValidationMessageFor(model => model.Formdata.clientRemarks, "", new { @class = "validate" })
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    @Html.EditorFor(model => model.Formdata.Consultant.name)
+                    @Html.LabelFor(model => model.Formdata.Consultant.name, "Consultant")
+                    @Html.ValidationMessageFor(model => model.Formdata.Consultant.name, "", new { @class = "validate" })
+                </div>
+                <div class="input-field col s4">
+                    @Html.EditorFor(model => model.Formdata.ProjectManager.name)
+                    @Html.LabelFor(model => model.Formdata.ProjectManager.name, "Project Manager")
+                    @Html.ValidationMessageFor(model => model.Formdata.ProjectManager.name, "", new { @class = "validate" })
+                </div>
+                <div class="input-field col s4">
+                    @Html.EditorFor(model => model.Formdata.AcceptedBy.name)
+                    @Html.LabelFor(model => model.Formdata.AcceptedBy.name, "Accepted By")
+                    @Html.ValidationMessageFor(model => model.Formdata.AcceptedBy.name, "", new { @class = "validate" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProjectKapwa.Models.WorkAcceptance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table highlight bordered">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Id)</th>
+        <th>@Html.DisplayNameFor(model => model.partition)</th>
+        <th>@Html.DisplayNameFor(model => model.Formdata.formName)</th>
+        <th>@Html.DisplayNameFor(model => model.Formdata.date)</th>
+        <th>@Html.DisplayNameFor(model => model.Formdata.name)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+        <td>@Html.DisplayFor(modelItem => item.partition)</td>
+        <td>@Html.DisplayFor(modelItem => item.Formdata.formName)</td>
+        <td>@Html.DisplayFor(modelItem => item.Formdata.date)</td>
+        <td>@Html.DisplayFor(modelItem => item.Formdata.name)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id, partition = item.partition }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id, partition = item.partition }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id, partition = item.partition })
+        </td>
+    </tr>
+    }
+
+</table>

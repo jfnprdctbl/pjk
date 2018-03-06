@@ -1,0 +1,57 @@
+﻿@model ProjectKapwa.Models.xforms
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+
+    <table class="table highlight bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Partition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Completed)
+            </th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.FullName.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.FullName.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Partition)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Description)
+            </td>
+            <td>
+                <input type="checkbox" id="@Model.Completed" checked="@Model.Completed" disabled="disabled" />
+                       @Html.LabelFor(Model => Model.Completed)
+            </td>
+        </tr>
+
+
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id, partition = Model.Partition }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

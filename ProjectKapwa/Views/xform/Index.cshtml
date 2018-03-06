@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProjectKapwa.Models.xforms>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table highlight bordered">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.FullName.FirstName)</th>
+        <th>@Html.DisplayNameFor(model => model.FullName.LastName)</th>
+        <th>@Html.DisplayNameFor(model => model.Partition)</th>
+        <th>@Html.DisplayNameFor(model => model.Description)</th>
+        <th>@Html.DisplayNameFor(model => model.Completed)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.FullName.FirstName)</td>
+            <td>@Html.DisplayFor(modelItem => item.FullName.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Partition)</td>
+            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+            <td>
+                    <input type="checkbox" id="@item.Completed" checked="@item.Completed" disabled="disabled" />
+                    @Html.LabelFor(modelItem => item.Completed)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id, partition = item.Partition }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id, partition = item.Partition }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id, partition = item.Partition })
+            </td>
+        </tr>
+    }
+
+</table>
